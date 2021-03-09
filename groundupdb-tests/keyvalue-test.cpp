@@ -1,6 +1,9 @@
 #include "catch.hpp"
 #include "groundupdb/groundupdb.h"
 
+using namespace groundupdb;
+
+
 TEST_CASE("Store and retrieve a value" , "[setKeyValue, getKeyValue]"){
     //Story: -
     // [Who] As a database user

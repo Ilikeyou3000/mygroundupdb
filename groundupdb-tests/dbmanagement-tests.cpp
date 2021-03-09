@@ -5,6 +5,7 @@
 #include "groundupdb/groundupdb.h"
 
 namespace fs = std::filesystem;
+using namespace groundupdb;
 
 TEST_CASE("(Create a new empty database", "[createEmptyDB]"){
 
