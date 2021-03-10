@@ -2,24 +2,24 @@
 #define DATABASE_H
 
 #include <string>
-
-class Database
+namespace groundupdb {
+class IDatabase
 {
 public:
-    Database(std::string dbname, std::string fullpath);
+    IDatabase()=default;
+    virtual ~IDatabase() = default;
+    virtual std::string getDirectory(void) = 0;
 
-    std::string getDirectory(void);
+    virtual void setKeyValue(std::string key, std::string value) = 0;
 
-    void setKeyValue(std::string key, std::string value);
+    virtual std::string getKeyValue(std::string key)= 0;
 
-    std::string getKeyValue(std::string key);
+    const static std::unique_ptr<IDatabase> createEmpty(std::string dbname);
+    const static std::unique_ptr<IDatabase> load(std::string dbname);
+    virtual void destroy() = 0;
 
-    static Database createEmpty(std::string dbname);
-    static Database loadDB(std::string dbname);
-    void destroy();
-private:
-    std::string m_name;
-    std::string m_fullpath;
 };
+}
+
 
 #endif // DATABASE_H
