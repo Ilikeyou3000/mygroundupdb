@@ -17,6 +17,7 @@ SOURCES += \
 HEADERS += \
     groundupdb.h \
     include/database.h \
+    include/extensions/extdatabase.h \
     include/groundupdb.h
 
 INCLUDEPATH += include
